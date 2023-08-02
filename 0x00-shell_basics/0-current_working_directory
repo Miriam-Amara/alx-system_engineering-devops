@@ -1,3 +1,4 @@
-#!/bin/bash
-pwd
+abs_path=$(pwd)
+echo "Absolute path of the current working directory: $abs_path"
+
 

@@ -1,4 +1,3 @@
-
 This explains the basic shell navigation commands in this project
 
 1-listit 
@@ -22,5 +21,10 @@ Therefore, ls -a -l means display the long lists of all the files and subdirecto
 ls -la
 This command is the same as the one above in no.4 there is not difference in their output. It is simply telling us that we can put both -a and -l together and they will still do the same thing
 
-6.
+6-firstdirectory
+mkdir /tmp/my_first_directory
+mkdir is used to create a new empty directory/folder. The mk stands for make and the dir stands for directory put together it says makedirectory
+/tmp/my_first_directory - this defines the path to make the directory. It says, go inside a directory named tmp and create a new directory called my_first_directory. Now, my_first_directory_will be a subdirectory in tmp directory.
+
+7-movethatfile
 

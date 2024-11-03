@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# displays 'Best School' and also
+# displays 'bad luck' and 'good luck' at the 4th iteration and 8th iteration.
+
+sentence="Best School"
+sentence_at_4="bad luck"
+sentence_at_8="good luck"
+
+i=1
+while [ $i -le 10 ];
+do
+    if [ $i -eq 4 ];
+    then
+        echo "$sentence_at_4"
+    elif [ $i -eq 8 ];
+    then
+        echo "$sentence_at_8"
+    else
+        echo "$sentence"
+    fi
+    ((++i))
+done

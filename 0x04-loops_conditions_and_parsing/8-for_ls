@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Lists filenames in the directory, removing the prefix before the first dash (-)
+
+directory="./"
+
+for file in "$directory"*;
+do
+    if [ -f "$file" ];
+    then
+        filename=$(basename "$file")
+        echo "$filename" | cut -d'-' -f2-
+    fi
+done

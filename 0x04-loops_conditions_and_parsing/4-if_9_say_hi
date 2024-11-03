@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# displays 'Best School' and 'Hi' at the 9th iteration using a while loop.
+
+sentence="Best School"
+word_at_9="Hi"
+
+i=1
+while [ $i -le 10 ];
+do
+    echo "$sentence"
+    if [ $i -eq 9 ];
+    then
+        echo "$word_at_9"
+    fi
+    ((++i))
+done

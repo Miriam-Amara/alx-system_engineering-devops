@@ -4,28 +4,16 @@
 file1="/var/run/my_process.pid"
 file2="manage_my_process"
 
-creates_func()
-{
-    touch "$file1"
-    echo "$$" > "$file1"
-}
-
-starts_func()
+starts_creates_func()
 {
     ./"$file2" &
+    touch "$file1"
+    echo "$!" > "$file1"
 }
 
 stops_func()
 {
-    pid=$(pgrep -f "$file2")
-
-    for i in $pid
-    do
-        if [ "$i" -ne $$ ]
-        then
-            kill -9 "$i"
-        fi
-    done
+    kill $(cat "$file1")
 }
 
 displays_func()
@@ -53,8 +41,7 @@ else
     case $1 in
     start)
         #start the process
-        starts_func
-        creates_func
+        starts_creates_func
         displays_func "start"
         ;;
     stop)
@@ -67,8 +54,7 @@ else
         # restart the process
         stops_func
         deletes_func
-        starts_func
-        creates_func
+        starts_creates_func
         displays_func "restart"
         ;;
     *)

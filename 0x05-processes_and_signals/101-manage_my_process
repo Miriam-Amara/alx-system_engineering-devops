@@ -13,7 +13,7 @@ starts_creates_func()
 
 stops_func()
 {
-    kill $(cat "$file1")
+    kill "$(cat "$file1")"
 }
 
 displays_func()

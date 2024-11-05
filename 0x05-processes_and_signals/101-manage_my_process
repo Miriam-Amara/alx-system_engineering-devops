@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+# manages 'manage_my_process'
+
+file1="/var/run/my_process.pid"
+file2="manage_my_process"
+
+creates_func()
+{
+    touch "$file1" 2>/dev/null
+    echo "$$" > "$file1" 2>/dev/null
+}
+
+starts_func()
+{
+    ./"$file2" &
+}
+
+stops_func()
+{
+    pid=$(pgrep -f "$file2")
+
+    for i in $pid
+    do
+        if [ "$i" -ne $$ ]
+        then
+            kill -9 "$i"
+        fi
+    done
+}
+
+displays_func()
+{
+    case $1 in
+    start)
+        echo "manage_my_process started";;
+    stop)
+        echo "manage_my_process stopped";;
+    restart)
+        echo "manage_my_process restarted";;
+    esac
+}
+
+deletes_func()
+{
+    rm "$file1" 2>/dev/null
+}
+
+
+if [ $# -ne 1 ]
+then
+    echo "Usage: manage_my_process {start|stop|restart}"
+else
+    case $1 in
+    start)
+        #start the process
+        starts_func
+        creates_func
+        displays_func "$1"
+        ;;
+    stop)
+        #stop the process
+        stops_func
+        deletes_func
+        displays_func "$1"
+        ;;
+    restart)
+        # restart the process
+        stops_func
+        deletes_func
+        starts_func
+        creates_func
+        displays_func "$1"
+        ;;
+    *)
+        echo "Usage: manage_my_process {start|stop|restart}"
+        ;;
+    esac
+fi
+
+exit 0

@@ -6,8 +6,8 @@ file2="manage_my_process"
 
 creates_func()
 {
-    touch "$file1" 2>/dev/null
-    echo "$$" > "$file1" 2>/dev/null
+    touch "$file1"
+    echo "$$" > "$file1"
 }
 
 starts_func()
@@ -42,7 +42,7 @@ displays_func()
 
 deletes_func()
 {
-    rm "$file1" 2>/dev/null
+    rm "$file1"
 }
 
 
@@ -76,5 +76,3 @@ else
         ;;
     esac
 fi
-
-exit 0

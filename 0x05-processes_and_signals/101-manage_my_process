@@ -55,13 +55,13 @@ else
         #start the process
         starts_func
         creates_func
-        displays_func "$1"
+        displays_func "start"
         ;;
     stop)
         #stop the process
         stops_func
         deletes_func
-        displays_func "$1"
+        displays_func "stop"
         ;;
     restart)
         # restart the process
@@ -69,7 +69,7 @@ else
         deletes_func
         starts_func
         creates_func
-        displays_func "$1"
+        displays_func "restart"
         ;;
     *)
         echo "Usage: manage_my_process {start|stop|restart}"

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # a Bash script that creates an RSA key pair.
 
-ssh-keygen -t rsa -f ~/.ssh/school -b 4096 -N "betty"
+ssh-keygen -t rsa -f school -b 4096 -N "betty"
 
 # -t - specifies the type of key generate
+# -f - specifies the file to write the private key
 # -b - sets the key length in bit
 # -N - sets the passphrase for the private key

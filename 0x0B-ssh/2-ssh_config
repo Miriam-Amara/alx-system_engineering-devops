@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# ssh client configuration in ssh_config file
+# ssh connection must use private key ~/.ssh/school
+# client must refuse to authenticate with password
+
+Host ubuntu_server
+    Hostname 54.164.46.19
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
